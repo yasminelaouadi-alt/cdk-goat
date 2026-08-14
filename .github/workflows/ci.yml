@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
 
-permissions: write-all
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   build:
@@ -22,7 +24,7 @@ jobs:
             python-version: 3.7
 
         - name: Set up Snyk CLI
-          uses: snyk/actions/setup@master
+          uses: snyk/actions/setup@b98d498629f1c368650224d6d212bf7dfa89e4bf  # master as of 2024
 
         - name: Install and configure Poetry
           uses: snok/install-poetry@v1
