@@ -22,10 +22,10 @@ jobs:
             python-version: 3.7
 
         - name: Set up Snyk CLI
-          uses: snyk/actions/setup@master
+          uses: snyk/actions/setup@12140f4059e244892ae643824a95459a102120dd # master
 
         - name: Install and configure Poetry
-          uses: snok/install-poetry@v1
+          uses: snok/install-poetry@a783c322200f0519c7926aa6faa857c4e23e9263 # v1.4.2
           with:
             version: 1.5.1
             virtualenvs-create: true
