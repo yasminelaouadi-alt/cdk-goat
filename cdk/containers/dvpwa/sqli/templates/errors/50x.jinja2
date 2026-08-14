@@ -3,5 +3,5 @@
 {% block title %}Oops - {{ error.status }}{% endblock %}
 {% block content %}
     <img src="//http.cat/{{ error.status }}" class="responsive-img"/>
-    <pre>{{ error.__dict__ }}</pre>
+    <pre>{{ error.__dict__ | e }}</pre>
 {% endblock %}
