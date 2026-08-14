@@ -1,17 +1,17 @@
 {% extends 'base.jinja2' %}
 
-{% block title %}{{ student.name | e }}{% endblock %}
+{% block title %}{{ student.name }}{% endblock %}
 
 {% block breadcrumbs %}
     <div class="col s12">
         <a href="/" class="breadcrumb">SQLI</a>
         <a href="/students/" class="breadcrumb">Students</a>
-        <a href="/students/{{ student.id }}" class="breadcrumb">{{ student.name | e }}</a>
+        <a href="/students/{{ student.id }}" class="breadcrumb">{{ student.name }}</a>
     </div>
 {% endblock %}
 
 {% block content %}
-    <h2>{{ student.name | e }}</h2>
+    <h2>{{ student.name }}</h2>
     {% if results %}
     {% for (course, marks) in results %}
         <div class="card hoverable">
