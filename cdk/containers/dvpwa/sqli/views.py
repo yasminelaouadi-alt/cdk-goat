@@ -79,13 +79,16 @@ async def student(request: Request):
 @template("courses.jinja2")
 async def courses(request: Request):
     app: Application = request.app
+    auth_user = await get_auth_user(request)
     if request.method == "POST":
+        if not auth_user or not auth_user.is_admin:
+            raise HTTPForbidden()
         data = await request.post()
         async with app["db"].acquire() as conn:
             await Course.create(conn, data["title"], data["description"])
     async with app["db"].acquire() as conn:
         courses = await Course.get_many(conn)
-    return {"courses": courses}
+    return {"courses": courses, "auth_user": auth_user}
 
 
 @template("course.jinja2")
