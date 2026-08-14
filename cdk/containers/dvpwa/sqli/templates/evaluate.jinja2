@@ -14,7 +14,7 @@
 {% block content %}
     <h2>Fail</h2>
     {% for fieldname, errors in errors.items() %}
-        <p>{{ fieldname }}: {{ errors }}</p>
+        <p>{{ fieldname | e }}: {{ errors | e }}</p>
     {% endfor %}
     <img class="responsive-img" src="//http.cat/400"/>
 {% endblock %}
@@ -22,10 +22,10 @@
 {% block aside %}
     <div class="collection">
         <a class="collection-item" href="/students/{{ student.id }}">
-            Back to student {{ student.name }}
+            Back to student {{ student.name | e }}
         </a>
         <a class="collection-item" href="/courses/{{ course.id }}">
-            Back to course {{ course.name }}
+            Back to course {{ course.name | e }}
         </a>
     </div>
 {% endblock %}
